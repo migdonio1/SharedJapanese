@@ -22,7 +22,7 @@
         <activity android:name=".app.QuizMenuActivity" />
         <activity android:name=".app.QuizActivity" />
         <activity android:name=".app.SitesListActivity" />
-        <activity android:name=".app.SiteDetailActivity"></activity>
+        <activity android:name=".app.SiteDetailActivity"/>
     </application>
 
 </manifest>
