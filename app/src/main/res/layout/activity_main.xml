@@ -10,8 +10,18 @@
     tools:context="migdonio1.sharedjapanese.MainActivity">
 
     <TextView
+        android:id="@+id/textfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textfield" />
+        android:text="Hello World!" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textfield"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="155dp"
+        android:onClick="selfDestruct"
+        android:text="Button" />
 </RelativeLayout>
