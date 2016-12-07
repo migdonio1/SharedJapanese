@@ -9,9 +9,70 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="migdonio1.sharedjapanese.MainActivity">
 
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textfield" />
+        android:id="@+id/scrollView" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/shared_japanese"
+                android:id="@+id/mainTitle"
+                android:layout_marginTop="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agregar_palabra"
+                android:id="@+id/wordCreateButton"
+                android:layout_below="@+id/mainTitle"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="53dp"
+                android:layout_alignParentStart="true"
+                android:clickable="false"
+                android:onClick="onClickWordCreateButton" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lista_palabras"
+                android:id="@+id/wordsListButton"
+                android:layout_below="@+id/wordCreateButton"
+                android:layout_marginTop="20dp"
+                android:layout_alignEnd="@+id/wordCreateButton"
+                android:layout_alignParentStart="true"
+                android:onClick="onClickWordsListButton" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quiz"
+                android:id="@+id/quizMenuButton"
+                android:layout_below="@+id/wordsListButton"
+                android:layout_marginTop="20dp"
+                android:layout_alignEnd="@+id/wordsListButton"
+                android:layout_alignParentStart="true"
+                android:onClick="onClickQuizButton" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sitios_de_interes"
+                android:id="@+id/sitesListButton"
+                android:layout_below="@+id/quizMenuButton"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignEnd="@+id/quizMenuButton"
+                android:onClick="onClickSitesListButton" />
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

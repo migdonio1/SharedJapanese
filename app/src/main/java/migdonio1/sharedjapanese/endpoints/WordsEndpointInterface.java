@@ -12,7 +12,7 @@ import retrofit2.http.Path;
  */
 public interface WordsEndpointInterface {
     @GET("words")
-    Call<List<Word>> WordList();
+    Call<List<Word>> WordsList();
 
     @GET("words/{word_id}")
     Call<Word> getWord(@Path("word_id") String word);

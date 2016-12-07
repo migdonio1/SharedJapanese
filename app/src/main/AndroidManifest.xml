@@ -17,6 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".app.WordsListActivity" />
+        <activity android:name=".app.WordCreateActivity" />
+        <activity android:name=".app.QuizMenuActivity" />
+        <activity android:name=".app.QuizActivity" />
+        <activity android:name=".app.SitesListActivity" />
+        <activity android:name=".app.SiteDetailActivity"></activity>
     </application>
 
 </manifest>

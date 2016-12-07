@@ -1,17 +1,16 @@
 package migdonio1.sharedjapanese;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
-import migdonio1.sharedjapanese.endpoints.WordsEndpointInterface;
-import migdonio1.sharedjapanese.models.Word;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import migdonio1.sharedjapanese.app.QuizActivity;
+import migdonio1.sharedjapanese.app.SitesListActivity;
+import migdonio1.sharedjapanese.app.WordCreateActivity;
+import migdonio1.sharedjapanese.app.WordsListActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,29 +21,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+    }
 
-        WordsEndpointInterface apiWords = retrofit.create(WordsEndpointInterface.class);
-        textView = (TextView) findViewById(R.id.textfield);
+    public void onClickWordCreateButton(View v) {
+        Intent intent = new Intent(this, WordCreateActivity.class);
+        startActivity(intent);
+    }
 
-        String id = "5844bdd3daeba5467053f36b";
+    public void onClickWordsListButton(View v) {
+        Intent intent = new Intent(this, WordsListActivity.class);
+        startActivity(intent);
+    }
 
-        Call<Word> call = apiWords.getWord(id);
-        call.enqueue(new Callback<Word>() {
-            @Override
-            public void onResponse(Call<Word> call, Response<Word> response) {
-                int statusCode = response.code();
-                Word word = response.body();
-                textView.setText(word.getOriginal());
-            }
+    public void onClickQuizButton(View v) {
+        Intent intent = new Intent(this, QuizActivity.class);
+        startActivity(intent);
+    }
 
-            @Override
-            public void onFailure(Call<Word> call, Throwable t) {
-                Log.d("Error", "Can't complete the request");
-            }
-        });
+    public void onClickSitesListButton(View v) {
+        Intent intent = new Intent(this, SitesListActivity.class);
+        startActivity(intent);
     }
 }

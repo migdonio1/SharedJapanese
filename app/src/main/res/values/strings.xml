@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SharedJapanese</string>
+    <string name="shared_japanese">Shared Japanese</string>
+    <string name="agregar_palabra">Agregar Palabra</string>
+    <string name="lista_palabras">Lista Palabras</string>
+    <string name="quiz">Quiz</string>
+    <string name="sitios_de_interes">Sitios de Interes</string>
 </resources>
