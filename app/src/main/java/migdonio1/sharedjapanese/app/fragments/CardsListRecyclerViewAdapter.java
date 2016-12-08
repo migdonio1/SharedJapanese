@@ -33,12 +33,17 @@ public class CardsListRecyclerViewAdapter extends RecyclerView.Adapter<CardsList
 
     @Override
     public void onBindViewHolder(WordHolder holder, int position) {
-        String syllables = " (" + mWordset.get(position).getSyllables() + ")";
+        String original = !mWordset.get(position).getOriginal().isEmpty() ? mWordset.get(position).getOriginal() : "";
+        String syllables = !mWordset.get(position).getSyllables().isEmpty() ? mWordset.get(position).getSyllables() : "";
+        syllables = " (" + syllables  + ")";
+        String translates = !mWordset.get(position).getTranslates().isEmpty() ? mWordset.get(position).getTranslates().get(0) : "Sin traduccion";
+        String types = !mWordset.get(position).getTypes().isEmpty() ? mWordset.get(position).getTypes().get(0) : "Sin definir";
+        String notes = !mWordset.get(position).getNotes().isEmpty() ? mWordset.get(position).getNotes() : "Sin notas";
 
-        holder.original.setText(mWordset.get(position).getOriginal());
+        holder.original.setText(original);
         holder.syllables.setText(syllables);
-        holder.translates.setText(mWordset.get(position).getTranslates().get(0));
-        holder.types.setText(mWordset.get(position).getTypes().get(0));
+        holder.translates.setText(translates);
+        holder.types.setText(types);
     }
 
     public void addItem(Word word, int index) {

@@ -1,5 +1,6 @@
 package migdonio1.sharedjapanese.app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import migdonio1.sharedjapanese.MainActivity;
 import migdonio1.sharedjapanese.R;
 import migdonio1.sharedjapanese.endpoints.WordsEndpointInterface;
 import migdonio1.sharedjapanese.models.Word;
@@ -71,8 +73,6 @@ public class WordCreateActivity extends AppCompatActivity {
                 || notes.length() == 0){
             Toast.makeText(WordCreateActivity.this, "Llene todos los campos para poder crear una palabra", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(WordCreateActivity.this, "Todos los campos se llenaron correctamente", Toast.LENGTH_SHORT).show();
-
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(API_ENDPOINT)
                     .addConverterFactory(GsonConverterFactory.create())
@@ -111,6 +111,9 @@ public class WordCreateActivity extends AppCompatActivity {
                 Toast.makeText(WordCreateActivity.this, toastText, Toast.LENGTH_SHORT).show();
                 emptyInputs();
                 wordSubmit.setEnabled(true);
+
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
 
             @Override
