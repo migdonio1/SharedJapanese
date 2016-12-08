@@ -26,19 +26,19 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Agregar Palabra"
-                android:id="@+id/textView6"
+                android:id="@+id/mainTitle"
                 android:textAlignment="center" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Palabra"
-                android:id="@+id/mainTitle" />
+                android:id="@+id/wordOriginalTextView" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText" />
+                android:id="@+id/wordOriginalEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText2" />
+                android:id="@+id/wordSyllablesEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText3" />
+                android:id="@+id/wordTranslatesEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText4" />
+                android:id="@+id/wordTypesEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,7 +82,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText5" />
+                android:id="@+id/wordNotesEditText" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -95,7 +95,8 @@
                     android:layout_height="wrap_content"
                     android:text="Guardar"
                     android:id="@+id/wordCreateButton"
-                    android:layout_weight="0.5" />
+                    android:layout_weight="0.5"
+                    android:onClick="onClickWordSubmitButton" />
 
                 <Button
                     android:layout_width="151dp"
