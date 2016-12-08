@@ -34,6 +34,7 @@ public class QuizPageFragment extends Fragment {
         this.original = (getArguments() != null) ? getArguments().getString(WORD.ORIGINAL) : "";
         this.syllables = (getArguments() != null) ? getArguments().getString(WORD.SYLLABLES) : "";
         this.types = (getArguments() != null) ? getArguments().getString(WORD.TYPES) : "";
+        this.translates = (getArguments() != null) ? getArguments().getString(WORD.TRANSLATES) : "";
 
     }
 
@@ -45,11 +46,13 @@ public class QuizPageFragment extends Fragment {
 
         TextView originalTextView = (TextView) rootView.findViewById(R.id.card_view_original_text);
         TextView syllablesTextView = (TextView) rootView.findViewById(R.id.card_view_syllables_text);
-
-        String syllablesFormated = " (" + syllables + ")";
+        TextView typesTextView = (TextView) rootView.findViewById(R.id.card_view_types_text);
+        TextView translatesTextView = (TextView) rootView.findViewById(R.id.card_view_translates_text);
 
         originalTextView.setText(original);
-        syllablesTextView.setText(syllablesFormated);
+        syllablesTextView.setText(syllables);
+        typesTextView.setText(types);
+        translatesTextView.setText(translates);
 
         return rootView;
 

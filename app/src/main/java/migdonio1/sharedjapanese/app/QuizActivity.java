@@ -61,10 +61,6 @@ public class QuizActivity extends FragmentActivity {
             public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {
                 words = response.body();
 
-                for(int i=0; i<words.size(); i++){
-                    Log.d("ioloooo", "Word: " + words.get(i).getOriginal() + " (" + words.get(i).getSyllables() + ")");
-                }
-
                 for(int i=0; i<words.size(); i++) {
                     mPagerAdapter.addFragment(QuizPageFragment.newInstance(words.get(i), i+1));
                 }
@@ -73,7 +69,7 @@ public class QuizActivity extends FragmentActivity {
 
             @Override
             public void onFailure(Call<List<Word>> call, Throwable t) {
-                Toast.makeText(QuizActivity.this, "Error: El servidor no responde, intentelo mas tarde", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizActivity.this, "Error: El servidor no responde, intentelo mas tarde.", Toast.LENGTH_SHORT).show();
             }
         });
     }
