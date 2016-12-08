@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,4 +9,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="migdonio1.sharedjapanese.app.SiteDetailActivity">
 
-</RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Castillo Edo"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:id="@+id/siteTranslatesTextView" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="江戸城"
+            android:textAlignment="center"
+            android:textSize="28dp"
+            android:id="@+id/siteOriginalTextView" />
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:id="@+id/map"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="15dp"
+            android:text="El castillo Edo (江戸城 Edo-jō), también conocido como castillo Chidoya (千代田城 Chiyoda-jō) es un castillo japonés construido en 1457 por Ōta Dōkan en lo que hoy es Tokio, conocido en ese entonces como Edo."
+            android:id="@+id/siteDescriptionTextView" />
+    </LinearLayout>
+</ScrollView>

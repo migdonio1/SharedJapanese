@@ -3,7 +3,6 @@ package migdonio1.sharedjapanese.endpoints;
 import java.util.List;
 
 import migdonio1.sharedjapanese.models.Site;
-import migdonio1.sharedjapanese.models.Word;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -15,11 +14,11 @@ import retrofit2.http.Path;
  */
 public interface SitesApiInterface {
     @GET("sites")
-    Call<List<Word>> SitesList();
+    Call<List<Site>> SitesList();
 
     @POST("sites")
-    Call<Word> createSite(@Body Site site);
+    Call<Site> createSite(@Body Site site);
 
     @GET("sites/{site_id}")
-    Call<Word> getSite(@Path("site_id") String site);
+    Call<Site> getSite(@Path("site_id") String site);
 }
