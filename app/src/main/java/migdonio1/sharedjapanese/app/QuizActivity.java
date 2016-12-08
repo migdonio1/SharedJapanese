@@ -4,21 +4,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import migdonio1.sharedjapanese.R;
-import migdonio1.sharedjapanese.app.fragments.CardsListRecyclerViewAdapter;
 import migdonio1.sharedjapanese.app.fragments.QuizPageFragment;
-import migdonio1.sharedjapanese.endpoints.WordsEndpointInterface;
+import migdonio1.sharedjapanese.endpoints.WordsApiInterface;
 import migdonio1.sharedjapanese.models.Word;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +30,7 @@ public class QuizActivity extends FragmentActivity {
 
     private List<Word> words;
 
-    private WordsEndpointInterface apiWords;
+    private WordsApiInterface apiWords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +44,7 @@ public class QuizActivity extends FragmentActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        apiWords = retrofit.create(WordsEndpointInterface.class);
+        apiWords = retrofit.create(WordsApiInterface.class);
 
         getWords();
     }

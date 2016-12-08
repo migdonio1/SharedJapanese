@@ -6,14 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
 import migdonio1.sharedjapanese.R;
 import migdonio1.sharedjapanese.app.fragments.CardsListRecyclerViewAdapter;
-import migdonio1.sharedjapanese.endpoints.WordsEndpointInterface;
+import migdonio1.sharedjapanese.endpoints.WordsApiInterface;
 import migdonio1.sharedjapanese.models.Word;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +31,7 @@ public class WordsListActivity extends AppCompatActivity {
 
     private List<Word> words;
 
-    private WordsEndpointInterface apiWords;
+    private WordsApiInterface apiWords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class WordsListActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        apiWords = retrofit.create(WordsEndpointInterface.class);
+        apiWords = retrofit.create(WordsApiInterface.class);
 
         getWords();
     }

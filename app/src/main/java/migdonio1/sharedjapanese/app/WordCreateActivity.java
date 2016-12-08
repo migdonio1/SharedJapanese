@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.List;
 
 import migdonio1.sharedjapanese.MainActivity;
 import migdonio1.sharedjapanese.R;
-import migdonio1.sharedjapanese.endpoints.WordsEndpointInterface;
+import migdonio1.sharedjapanese.endpoints.WordsApiInterface;
 import migdonio1.sharedjapanese.models.Word;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,7 +38,7 @@ public class WordCreateActivity extends AppCompatActivity {
     private EditText notesEditText;
     private Button wordSubmit;
 
-    private WordsEndpointInterface apiWords;
+    private WordsApiInterface apiWords;
 
     private Word word;
 
@@ -78,7 +77,7 @@ public class WordCreateActivity extends AppCompatActivity {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
-            apiWords = retrofit.create(WordsEndpointInterface.class);
+            apiWords = retrofit.create(WordsApiInterface.class);
             createWordModel();
             createWord();
         }
