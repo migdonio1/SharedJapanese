@@ -14,9 +14,6 @@ import migdonio1.sharedjapanese.app.WordsListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String BASE_URL = "http://192.168.0.17:3001/api/v1/";
-    public TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

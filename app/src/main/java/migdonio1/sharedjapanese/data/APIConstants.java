@@ -9,7 +9,7 @@ public class APIConstants {
 
     public static final String API_ENDPOINT = BASE_URL + API_PATH;
 
-    public static class Keys {
+    public static class WORD {
         public static final String TOKEN = "token";
         public static final String ID = "_id";
         public static final String ORIGINAL = "original";
