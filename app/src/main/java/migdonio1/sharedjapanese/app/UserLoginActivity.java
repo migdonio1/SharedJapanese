@@ -13,6 +13,8 @@ import java.util.List;
 
 import migdonio1.sharedjapanese.MainActivity;
 import migdonio1.sharedjapanese.R;
+import migdonio1.sharedjapanese.endpoints.UsersApiInterface;
+import migdonio1.sharedjapanese.models.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,6 +32,8 @@ public class UserLoginActivity extends AppCompatActivity {
     private Button userLogin;
 
     private User user;
+
+    private UsersApiInterface apiUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
