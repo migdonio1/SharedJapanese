@@ -21,4 +21,8 @@ public interface WordsApiInterface {
 
     @GET("words/{word_id}")
     Call<Word> getWord(@Path("word_id") String word);
+
+    @GET("quiz/{quiz}")
+    Call<List<Word>> getQuiz(@Path("quiz") int quiz);
+
 }

@@ -1,5 +1,6 @@
 package migdonio1.sharedjapanese.app;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -32,12 +33,18 @@ public class QuizActivity extends FragmentActivity {
 
     private WordsApiInterface apiWords;
 
+    private int quizLenght;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        Intent intent = getIntent();
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new QuizPagerAdapter(getSupportFragmentManager());
+
+        quizLenght = intent.getIntExtra("quizz",10);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_ENDPOINT)
@@ -50,7 +57,7 @@ public class QuizActivity extends FragmentActivity {
     }
 
     public void getWords(){
-        Call<List<Word>> call = apiWords.WordsList();
+        Call<List<Word>> call = apiWords.getQuiz(2);
         call.enqueue(new Callback<List<Word>>() {
             @Override
             public void onResponse(Call<List<Word>> call, Response<List<Word>> response) {

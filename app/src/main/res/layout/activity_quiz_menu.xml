@@ -10,12 +10,46 @@
     tools:context="migdonio1.sharedjapanese.app.QuizMenuActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Selecciona el tamaño del Quiz"
-        android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="25dp"
+        android:text="Selecciona el tamaño del Quiz"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#3F51B5" />
+
+    <Button
+        android:id="@+id/secondButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/firstButton"
+        android:layout_below="@+id/firstButton"
+        android:layout_marginTop="39dp"
+        android:background="@color/colorPrimary"
+        android:onClick="onClickLevel20Button"
+        android:text="20 palabras" />
+
+    <Button
+        android:id="@+id/firstButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:background="@color/colorPrimary"
+        android:onClick="onClickLevel10Button"
+        android:text="10 palabras" />
+
+    <Button
+        android:id="@+id/thirdButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:background="@color/colorPrimary"
+        android:onClick="onClickLevel30Button"
+        android:text="30 palabras" />
 </RelativeLayout>

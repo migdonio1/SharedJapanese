@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import migdonio1.sharedjapanese.app.QuizActivity;
+import migdonio1.sharedjapanese.app.QuizMenuActivity;
 import migdonio1.sharedjapanese.app.SitesListActivity;
 import migdonio1.sharedjapanese.app.WordCreateActivity;
 import migdonio1.sharedjapanese.app.WordsListActivity;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickQuizButton(View v) {
-        Intent intent = new Intent(this, QuizActivity.class);
+        Intent intent = new Intent(this, QuizMenuActivity.class);
         startActivity(intent);
     }
 
