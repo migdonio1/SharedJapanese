@@ -4,7 +4,7 @@ package migdonio1.sharedjapanese.data;
  * Created by migdonio1 on 12/6/16.
  */
 public class APIConstants {
-    public static final String BASE_URL = "http://sharedjapanese.migdonio";
+    public static final String BASE_URL = "http://192.168.0.24:3001";
     public static final String API_PATH = "/api/v1/";
 
     public static final String API_ENDPOINT = BASE_URL + API_PATH;

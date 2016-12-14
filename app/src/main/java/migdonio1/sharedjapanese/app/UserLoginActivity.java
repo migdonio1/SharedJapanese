@@ -1,15 +1,18 @@
 package migdonio1.sharedjapanese.app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Objects;
 
 import migdonio1.sharedjapanese.MainActivity;
 import migdonio1.sharedjapanese.R;
@@ -41,6 +44,13 @@ public class UserLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_login);
         nameEditText = (EditText) findViewById(R.id.userNameEditText);
         passwordEditText = (EditText) findViewById(R.id.userPasswordEditText);
+
+        user = sharedPreferencesRead();
+
+        if(!Objects.equals(user.getName(), "none") && !Objects.equals(user.getPassword(), "none")){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void onClickLoginSubmitButton(View view) {
@@ -67,7 +77,7 @@ public class UserLoginActivity extends AppCompatActivity {
     private void createUserModel() {
         user = new User();
         user.setName(name);
-        user.setPassword(name);
+        user.setPassword(password);
     }
 
     private void tryLogin() {
@@ -76,20 +86,27 @@ public class UserLoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User userResponse = response.body();
+                Log.d("log1", String.valueOf(response.body().getName() == null));
+                Log.d("log2", String.valueOf(Objects.equals(response.body(), "0")));
+                if (Objects.equals(response.body().getName(), null)) {
+                    String toastText = "No se encontro la cuenta";
+                    Toast.makeText(UserLoginActivity.this, toastText, Toast.LENGTH_SHORT).show();
+                    emptyInputs();
+                } else {
+                    Log.d("log2", String.valueOf(response.body()));
+                    String toastText = "Bienvenido ";
+                    Toast.makeText(UserLoginActivity.this, toastText, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    sharedPreferencesUpdate(name, password);
+                    startActivity(intent);
 
-                String toastText = "Bienvenido " + userResponse.getName();
-                Toast.makeText(UserLoginActivity.this, toastText, Toast.LENGTH_SHORT).show();
-                emptyInputs();
-                userLogin.setEnabled(true);
+                }
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(UserLoginActivity.this, "Hubo un error en el inicio de sesión", Toast.LENGTH_SHORT).show();
-                userLogin.setEnabled(true);
             }
         });
     }
@@ -97,6 +114,26 @@ public class UserLoginActivity extends AppCompatActivity {
     private void emptyInputs() {
         nameEditText.setText("");
         passwordEditText.setText("");
+    }
+
+    private void sharedPreferencesUpdate(String name, String password) {
+        SharedPreferences settings = getSharedPreferences("log", 0);
+        SharedPreferences.Editor editor = settings.edit();
+
+        editor.putString("name", name);
+        editor.putString("password", password);
+
+        editor.commit();
+    }
+
+    private User sharedPreferencesRead() {
+        User userSaved = new User();
+        SharedPreferences settings = getSharedPreferences("log", 0); //0 means private mode
+        Log.d("login", settings.getString("name", "none"));
+        Log.d("login", settings.getString("password", "none"));
+        userSaved.setName(settings.getString("name", "none"));
+        userSaved.setPassword(settings.getString("password", "none"));
+        return userSaved;
     }
 
 

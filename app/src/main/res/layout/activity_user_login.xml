@@ -68,5 +68,6 @@
         android:text="Login"
         android:layout_alignBaseline="@+id/cancelButton"
         android:layout_alignBottom="@+id/cancelButton"
-        android:layout_alignStart="@+id/userPasswordEditText" />
+        android:layout_alignStart="@+id/userPasswordEditText"
+        android:onClick="onClickLoginSubmitButton" />
 </RelativeLayout>

@@ -21,20 +21,21 @@
             android:glEsVersion="0x00020000"
             android:required="true" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".app.UserLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".app.WordsListActivity" />
         <activity android:name=".app.WordCreateActivity" />
         <activity android:name=".app.QuizMenuActivity" />
         <activity android:name=".app.QuizActivity" />
         <activity android:name=".app.SitesListActivity" />
         <activity android:name=".app.SiteDetailActivity" />
-        <activity android:name=".app.UserLoginActivity" />
+
     </application>
 
 </manifest>

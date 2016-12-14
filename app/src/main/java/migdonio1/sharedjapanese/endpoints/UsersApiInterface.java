@@ -2,6 +2,7 @@ package migdonio1.sharedjapanese.endpoints;
 
 import migdonio1.sharedjapanese.models.User;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 /**
@@ -11,5 +12,5 @@ import retrofit2.http.POST;
 public interface UsersApiInterface {
 
     @POST("users")
-    Call<User> tryLogin(User user);
+    Call<User> tryLogin(@Body User user);
 }
